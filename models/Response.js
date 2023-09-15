@@ -1,15 +1,16 @@
 const { Schema, Types } = require('mongoose');
 
-const responseSchema = new Schema(
+const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
+       //Use Mongoose's ObjectId data type. Default value is set to a new ObjectId
     },
-    responseBody: {
+    reactionBody: {
       type: String,
       required: true,
-      maxlength: 280,
+      maxlength: 280, 
     },
     username: {
       type: String,
@@ -28,4 +29,4 @@ const responseSchema = new Schema(
   }
 );
 
-module.exports = responseSchema;
+module.exports = reactionSchema;
