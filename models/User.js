@@ -7,10 +7,10 @@ const userSchema = new Schema(
     email: String,
     thoughts: Number, // Array of _id values referencing the Thought model
     friends: Number,//Array of _id values referencing the User model 
-    videos: [
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'video',
+        ref: 'thought',
       },
     ],
   },
