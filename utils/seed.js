@@ -1,5 +1,5 @@
 const connection = require('../config/connection');
-const { User, Thought } = require('../models');
+const { User, Thought, Reaction } = require('../models');
 const { getRandomName, getRandomThoughts } = require('./data');
 
 connection.on('error', (err) => err);
@@ -35,7 +35,7 @@ connection.once('open', async () => {
   await User.collection.insertMany(users);
   await Thought.collection.insertMany(thoughts);
 
-  // loop through the saved thoughts, for each thought we need to generate a thought response and insert the thought responses
+  // loop through the saved thoughts, for each thought we need to generate a thought reaction and insert the thought reactions
   console.table(users);
   console.table(thoughts);
   console.info('Seeding complete! 🌱');

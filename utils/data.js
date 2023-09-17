@@ -69,12 +69,12 @@ const descriptionsBodies = [
   'Submission for startup pitch',
 ];
 
-const possibleResponses = [
+const possibleReactions = [
   'I disagree!',
   'I tried your algorithm, here were the results',
   'This was awesome',
   'Thank you for the great content',
-  'Please check out my thought response',
+  'Please check out my thought reaction',
   'Like and subscribe to my channel please',
   'Reply: The side effects of in app purchases on digital marketplaces',
 ];
@@ -88,7 +88,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomName = () =>
   `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
 
-// Function to generate random thoughts that we can add to the database. Includes thought responses.
+// Function to generate random thoughts that we can add to the database. Includes thought reactions.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
@@ -96,21 +96,21 @@ const getRandomThoughts = (int) => {
       published: Math.random() < 0.5,
       description: getRandomArrItem(descriptionsBodies),
       advertiserFriendly: Math.random() < 0.5,
-      responses: [...getThoughtResponses(3)],
+      reactions: [...getThoughtReactions(3)],
     });
   }
   return results;
 };
 
-// Create the responses that will be added to each thought
-const getThoughtResponses = (int) => {
+// Create the reactions that will be added to each thought
+const getThoughtReactions = (int) => {
   if (int === 1) {
-    return getRandomArrItem(possibleResponses);
+    return getRandomArrItem(possibleReactions);
   }
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      responseBody: getRandomArrItem(possibleResponses),
+      reactionBody: getRandomArrItem(possibleReactions),
       username: getRandomName(),
     });
   }
