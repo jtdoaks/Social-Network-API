@@ -15,16 +15,11 @@ const thoughtSchema = new Schema(
       default: Date.now,
       lastAccessed: { type: Date, default: Date.now },
     },
-    username: { // The user that created this thought
+    username: { 
       type: String,
       required: true,
     },
-    reactions: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'reaction',
-        }
-      ],
+    
     
     reactions: [Reaction],
   },

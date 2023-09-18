@@ -3,9 +3,10 @@ const { Thought, User } = require('../models');
 module.exports = {
   async getThoughts(req, res) {
     try {
-      const thought = await Thought.find();
+      const thoughts = await Thought.find();
       res.json(thoughts);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   },
@@ -76,11 +77,7 @@ module.exports = {
         { new: true }
       );
 
-      if (!user) {
-        return res
-          .status(404)
-          .json({ message: 'Thought created but no user with this id!' });
-      }
+     
 
       res.json({ message: 'Thought successfully deleted!' });
     } catch (err) {

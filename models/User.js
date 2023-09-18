@@ -16,7 +16,7 @@ const userSchema = new Schema(
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'friend',
+        ref: 'user',
       }
     ],
     thoughts: [
@@ -38,7 +38,7 @@ const userSchema = new Schema(
 userSchema.pre('save', function(next) {
   const user = this;
 
-  if(user,username) {
+  if(user.username) {
     user.username = user.username.trim();
   }
   if (user.email) {

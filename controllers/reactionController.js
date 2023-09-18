@@ -3,9 +3,10 @@ const { Thought, User, Reaction } = require('../models');
 module.exports = {
   async getReactions(req, res) {
     try {
-      const reaction = await Reaction.find();
-      res.json(reactions);
+      const reaction = await Thought.find();
+      res.json(req.params.thoughtId);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   },
@@ -25,10 +26,10 @@ module.exports = {
   
   async createReaction(req, res) {
     try {
-      const reaction = await Reaction.create(req.body);
-      const user = await User.findOneAndUpdate(
-        { _id: req.body.userId },
-        { $addToSet: { reactions: reaction._id } },
+      
+      const reaction = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
         { new: true }
       );
 
