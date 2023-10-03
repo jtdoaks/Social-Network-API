@@ -16,3 +16,5 @@ This project allows testing of routes using Insomnia.
 ## Links
 
 - GitHub - https://github.com/jtdoaks/Social-Network-API 
+
+- Screencastify - https://drive.google.com/file/d/1R7nNOW3iO3-yWZa3sCjMcsEsIsOob7LC/view 
